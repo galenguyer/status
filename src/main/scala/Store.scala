@@ -8,7 +8,7 @@ import scala.concurrent.{Await, ExecutionContext, Future}
 object Store {
   val pingEvents = TableQuery[PingEvents]
 
-  private val _db = Database.forURL("jdbc:h2:file:./status", driver = "org.h2.Driver", keepAliveConnection = true)
+  private val _db = Database.forURL("jdbc:h2:file:./data/status", driver = "org.h2.Driver", keepAliveConnection = true)
   implicit val ec: ExecutionContext = ExecutionContext.global
 
   Await.ready(_db.run(
